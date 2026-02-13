@@ -1,0 +1,234 @@
+:root {
+  --bg: #e6e6fa;
+  --panel: #e6e6fa;
+  --text: #9370db;
+  --muted: #9370db;
+  --border: #9370db;
+  --snake: #32cd32;
+  --snake-head: #32cd32;
+  --food: #ff1493;
+  --button: #9370db;
+  --button-accent: #ff1493;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: var(--text);
+  background: #e6e6fa;
+  display: grid;
+  place-items: center;
+}
+
+.app {
+  width: min(94vw, 560px);
+  padding: 1rem;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  background: var(--panel);
+}
+
+.hud h1 {
+  font-size: 1.2rem;
+  margin: 0 0 0.5rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.page-tabs {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.tab {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--button);
+  color: #e6e6fa;
+  padding: 0.4rem 0.65rem;
+  font-weight: 700;
+}
+
+.tab.active {
+  background: var(--button-accent);
+  color: #e6e6fa;
+  font-weight: 600;
+}
+
+.hud-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.75rem;
+}
+
+.hud-row p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.board {
+  display: grid;
+  grid-template-columns: repeat(var(--grid-size), 1fr);
+  gap: 2px;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  overflow: hidden;
+  background: #9370db;
+  padding: 4px;
+}
+
+.page {
+  display: none;
+}
+
+.page.active {
+  display: block;
+}
+
+.cell {
+  background: #e6e6fa;
+  border-radius: 4px;
+}
+
+.cell.snake {
+  background: var(--snake);
+}
+
+.cell.snake-head {
+  background: var(--snake-head);
+}
+
+.cell.food {
+  background: var(--food);
+}
+
+.controls {
+  margin-top: 0.75rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.directional {
+  display: grid;
+  grid-template-columns: repeat(3, 2.25rem);
+  grid-template-rows: repeat(2, 2.25rem);
+  gap: 0.35rem;
+}
+
+.directional button {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--button);
+  color: var(--snake);
+  font-weight: 900;
+  font-size: 1.05rem;
+  line-height: 1;
+}
+
+.directional button[data-dir="up"] {
+  grid-column: 2;
+}
+
+.directional button[data-dir="left"] {
+  grid-column: 1;
+  grid-row: 2;
+}
+
+.directional button[data-dir="down"] {
+  grid-column: 2;
+  grid-row: 2;
+}
+
+.directional button[data-dir="right"] {
+  grid-column: 3;
+  grid-row: 2;
+}
+
+.actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.actions button {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--button-accent);
+  color: #e6e6fa;
+  padding: 0.45rem 0.7rem;
+  font-weight: 600;
+}
+
+.help {
+  margin: 0.75rem 0 0;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+#leaderboard-page h2 {
+  margin: 0 0 0.6rem;
+  font-size: 1.05rem;
+  letter-spacing: 0.03em;
+}
+
+.leaderboard-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 0.45rem;
+}
+
+.leaderboard-item {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0.6rem;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: #e6e6fa;
+}
+
+.player {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.avatar {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 999px;
+  display: grid;
+  place-items: center;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #e6e6fa;
+  border: 1px solid #9370db;
+  background: #32cd32;
+}
+
+.player-name {
+  font-weight: 600;
+}
+
+.entry-score {
+  font-weight: 600;
+}
+
+.entry-time {
+  color: var(--muted);
+  font-size: 0.85rem;
+}

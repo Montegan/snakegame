@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Snake</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="app">
+      <header class="hud">
+        <h1>Snake</h1>
+        <nav class="page-tabs" aria-label="Pages">
+          <button type="button" class="tab active" data-page="game">Game</button>
+          <button type="button" class="tab" data-page="leaderboard">Leaderboard</button>
+        </nav>
+        <div class="hud-row">
+          <p>Score: <span id="score">0</span></p>
+          <p id="status" aria-live="polite">Running</p>
+        </div>
+      </header>
+
+      <section id="game-page" class="page active" aria-label="Game page">
+        <section
+          id="board"
+          class="board"
+          role="grid"
+          aria-label="Snake game board"
+        ></section>
+
+        <section class="controls" aria-label="Game controls">
+          <div class="directional">
+            <button type="button" data-dir="up" aria-label="Move up">↑</button>
+            <button type="button" data-dir="left" aria-label="Move left">←</button>
+            <button type="button" data-dir="down" aria-label="Move down">↓</button>
+            <button type="button" data-dir="right" aria-label="Move right">→</button>
+          </div>
+          <div class="actions">
+            <button type="button" id="pause-btn">Pause</button>
+            <button type="button" id="restart-btn">Restart</button>
+          </div>
+        </section>
+
+        <p class="help">
+          Keyboard: Arrow keys or WASD to move, Space to pause, R to restart.
+        </p>
+      </section>
+
+      <section id="leaderboard-page" class="page" aria-label="Leaderboard page">
+        <h2>Last 10 Games</h2>
+        <ol id="leaderboard-list" class="leaderboard-list"></ol>
+        <p id="leaderboard-empty" class="help">No finished games yet.</p>
+      </section>
+    </main>
+
+    <script type="module" src="./app.js"></script>
+  </body>
+</html>
